@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://aaronschneider.org/schema/pmac_schema_v0.1.json",
+  "$id": "https://github.com/schneidergithub/pmac-core//src/pmac/schema/v0_1.json",
   "title": "PMAC Project File v0.1",
   "type": "object",
   "properties": {
