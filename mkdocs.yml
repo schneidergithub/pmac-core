@@ -1,0 +1,9 @@
+
+site_name: PMAC Core
+repo_url: https://github.com/schneidergithub/pmac-core
+docs_dir: docs
+nav:
+  - Home: README.md
+  - Schema Overview: docs/schema_overview.md
+plugins:
+  - search

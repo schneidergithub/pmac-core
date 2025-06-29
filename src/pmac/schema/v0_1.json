@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aaronschneider.org/pmac/schema/pmac_schema_v0.1.json",
+  "title": "PMAC Project File v0.1",
+  "description": "Schema for Project Management As Code (PMAC) files that define projects, teams, epics, stories, and quality requirements (QR).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["metadata", "team", "epics"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "generated_at", "project_name"],
+      "properties": {
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "project_name": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "team": { "type": "array", "items": { "$ref": "#/$defs/team_member" } },
+    "epics": { "type": "array", "items": { "$ref": "#/$defs/epic" } },
+    "stories": { "type": "array", "items": { "$ref": "#/$defs/story" } },
+    "QR": { "$ref": "#/$defs/qr" }
+  },
+  "$defs": {
+    "team_member": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "role"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "timezone": { "type": "string" },
+        "skills": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "epic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "description", "stories"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "owner": { "type": "string" },
+        "labels": { "type": "array", "items": { "type": "string" } },
+        "stories": { "type": "array", "items": { "$ref": "#/$defs/story" } }
+      }
+    },
+    "story": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "summary", "description", "issue_type"],
+      "properties": {
+        "id": { "type": "string" },
+        "summary": { "type": "string" },
+        "description": { "type": "string" },
+        "issue_type": { "type": "string", "enum": ["Story", "Bug", "Task", "Spike"] },
+        "labels": { "type": "array", "items": { "type": "string" } },
+        "acceptance_criteria": { "type": "string" },
+        "qr": { "$ref": "#/$defs/qr" }
+      }
+    },
+    "qr": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "performance": { "type": "string" },
+        "security": { "type": "string" },
+        "logging": { "type": "string" },
+        "other": { "type": "string" }
+      }
+    }
+  }
+}

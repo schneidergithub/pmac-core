@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aaronschneider.org/schema/pmac_schema_v0.1.json",
+  "title": "PMAC Project File v0.1",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": ["0.1"]
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the PMAC project."
+    },
+    "description": {
+      "type": "string",
+      "description": "A brief description of the PMAC project."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when the project was created."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when the project was last updated."
+    }
+  },
+  "required": ["version", "name", "created_at", "updated_at"]
+}

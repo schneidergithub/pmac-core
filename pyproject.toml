@@ -1,0 +1,24 @@
+
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pmac-core"
+version = "0.1.0"
+description = "Project-Management-As-Code (PMAC) — schema, CLI, and templates"
+readme = "README.md"
+authors = [{name = "Aaron Schneider", email = "to@aaronschneider.biz"}]
+license = {text = "MIT"}
+
+[project.scripts]
+pmac = "pmac.cli:app"
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "typer>=0.12", "jsonschema>=4", "pre-commit>=3"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"pmac.schema" = ["*.json"]
