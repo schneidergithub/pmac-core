@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/schneidergithub/pmac-core/src/pmac/schema/v0_1.json",
+  "$id": "https://github.com/schneidergithub/pmac-core/blob/main/src/pmac/schema/v0_1.json",
   "title": "PMAC Project File v0.1",
   "description": "Schema for Project Management As Code (PMAC) files that define projects, teams, epics, stories, and quality requirements (QR).",
   "type": "object",
